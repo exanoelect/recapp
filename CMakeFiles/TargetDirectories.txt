@@ -1,0 +1,9 @@
+D:/qtpro/rpi/recapp/CMakeFiles/recapp.dir
+D:/qtpro/rpi/recapp/CMakeFiles/edit_cache.dir
+D:/qtpro/rpi/recapp/CMakeFiles/rebuild_cache.dir
+D:/qtpro/rpi/recapp/CMakeFiles/list_install_components.dir
+D:/qtpro/rpi/recapp/CMakeFiles/install.dir
+D:/qtpro/rpi/recapp/CMakeFiles/install/local.dir
+D:/qtpro/rpi/recapp/CMakeFiles/install/strip.dir
+D:/qtpro/rpi/recapp/CMakeFiles/recapp_autogen_timestamp_deps.dir
+D:/qtpro/rpi/recapp/CMakeFiles/recapp_autogen.dir

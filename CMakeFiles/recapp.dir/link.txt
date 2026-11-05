@@ -1,0 +1,3 @@
+C:\Qt6\Tools\CMake_64\bin\cmake.exe -E rm -f CMakeFiles\recapp.dir/objects.a
+C:\Qt6\Tools\mingw1310_64\bin\ar.exe qc CMakeFiles\recapp.dir/objects.a @CMakeFiles\recapp.dir\objects1.rsp
+C:\Qt6\Tools\mingw1310_64\bin\g++.exe -O3 -DNDEBUG -mwindows -Wl,--whole-archive CMakeFiles\recapp.dir/objects.a -Wl,--no-whole-archive -o recapp.exe -Wl,--out-implib,librecapp.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\recapp.dir\linkLibs.rsp
