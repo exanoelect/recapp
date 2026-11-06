@@ -107,7 +107,8 @@ void MainWindow::on_btnUpload_clicked()
     const QRegularExpression re(QStringLiteral("podcast_\\d+\\.wav$"));
 
     QStringList names;
-    const QStringList all = dir.entryList({QStringLiteral("podcast*.wav")}, QDir::Files);
+    //const QStringList all = dir.entryList({QStringLiteral("podcast*.wav")}, QDir::Files);
+    const QStringList all = dir.entryList({QStringLiteral("*.wav")}, QDir::Files);
     for (const QString &n : all)
         if (re.match(n).hasMatch())
             names << n;
