@@ -60,6 +60,7 @@ public:
 
     // Fungsi baru untuk memasukkan event ke queue
     void enqueueEvent(const QString &eventName, const QJsonObject &data);
+     void enqueueEvent(const QString &eventName, const QString data);
 
     //void emitEvent(const QString &eventName, const QJsonObject &data = QJsonObject());
     void emitEvent(const QString &eventName,const QJsonValue &data,std::function<void(QJsonValue)> ackCallback);
@@ -94,8 +95,9 @@ signals:
     void disconnected();
     void connectionError(const QString &error);
     //void eventReceived(const QString &eventName, const QJsonObject &data);
-    //void eventReceived(const QString &eventName, const QString &message);
+   // void eventReceived(const QString &eventName, const QString &message);
     void eventReceived(const QString &eventName, const QJsonValue &payload);
+    void joinAckReceived(bool ok);
 
 private slots:
     void onWebSocketConnected();

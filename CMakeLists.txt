@@ -34,12 +34,14 @@ set(PROJECT_SOURCES
         mainwindow.ui
         record.cpp
         record.h
-        BackendUploader.h
-        BackendUploader.cpp
+        #BackendUploader.h
+        #BackendUploader.cpp
         wavsplitter.cpp
         wavsplitter.h
-        socketioclient.cpp
-        socketioclient.h
+        #socketioclient.cpp
+        #socketioclient.h
+        BackendClient.h
+        BackendClient.cpp
         socketeventworker.h
         socketeventworker.cpp
 )

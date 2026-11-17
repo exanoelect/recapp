@@ -1,5 +1,6 @@
 #include "socketeventworker.h"
 #include <QJsonObject>
+#include <QVariant>
 #include <QDebug>
 
 SocketEventWorker::SocketEventWorker(QObject *parent)
@@ -7,8 +8,8 @@ SocketEventWorker::SocketEventWorker(QObject *parent)
 {
 }
 
-SocketEventWorker::~SocketEventWorker(){
-
+SocketEventWorker::~SocketEventWorker()
+{
 }
 
 //------------------------------------------------------------------------
@@ -49,7 +50,7 @@ void SocketEventWorker::process()
 
         qDebug() << "Worker processing event:" << eventName << "data:" << data;
 
-        //Robot mode
+        // Robot mode
         if (eventName == "transcription") {
             if (data.isObject()) {
                 QJsonObject obj = data.toObject();
@@ -57,7 +58,15 @@ void SocketEventWorker::process()
                 QString status = obj["status"].toString();
                 int percent = obj["percent"].toInt();
                 qDebug() << "reply " << eventName << obj;
-                emit transcriptionResult(status,percent);
+                emit transcriptionResult(status, percent);
+            }
+        }
+
+        if (eventName == "join") {
+            if (data.isObject()) {
+                QJsonObject obj = data.toObject();
+                QString ret = obj.value("ok").toVariant().toString();
+                emit joinReply(ret);
             }
         }
     }

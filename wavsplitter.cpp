@@ -187,7 +187,9 @@ WavSplitResult WavSplitter::split(const QString &srcPath, const WavSplitOptions 
         if (nSamples <= 0) continue;
         const qint64 nBytes = nSamples * w.blockAlign;
 
-        const QString outPath = QString("%1_%2.wav").arg(base).arg(int(i), 3, 10, QChar('0'));
+        const QString outPath = QString("%1_%2.wav").arg(base).arg(int(i), 3, 10, QChar('0')); //mulai dari 0
+       // const QString outPath = QString("%1_%2.wav").arg(base).arg(int(i+1), 3, 10, QChar('0')); //mulai dari 1
+
         QFile out(outPath);
         if (!out.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
             res.error = "Gagal menulis: " + outPath;

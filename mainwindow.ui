@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>508</width>
-    <height>309</height>
+    <height>364</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -69,9 +69,9 @@
    <widget class="QPushButton" name="btnPost">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>150</x>
       <y>180</y>
-      <width>161</width>
+      <width>121</width>
       <height>22</height>
      </rect>
     </property>
@@ -128,7 +128,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>192.168.1.22</string>
+     <string>192.168.1.6</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lePort">
@@ -167,7 +167,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>D:/wav/rec</string>
+     <string>D:/wav/meeting</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lePortSIO">
@@ -180,7 +180,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>3000</string>
+     <string>8000</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -194,6 +194,22 @@
     </property>
     <property name="text">
      <string>SIO</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btntest">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>180</y>
+      <width>121</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>con sio</string>
     </property>
    </widget>
   </widget>

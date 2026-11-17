@@ -17,7 +17,7 @@ SocketIOClient::SocketIOClient(QObject *parent)
     , m_isConnected(false)
     , m_packetId(0)
     , m_reconnectAttempts(0)
-    , m_port(3000)
+    , m_port(8000)
     , m_version(SocketIOVersion::V4)
 {
     //m_webSocket = new QWebSocket();
@@ -124,6 +124,8 @@ void SocketIOClient::enqueueEvent(const QString &eventName, const QJsonObject &d
 
      qDebug() << "Event masuk queue:"
               << eventName
+              << "Data foldername "
+              << data.value("foldername").toString()
               << "| queue size:"
               << m_eventQueue.size();
 
@@ -134,6 +136,12 @@ void SocketIOClient::enqueueEvent(const QString &eventName, const QJsonObject &d
     if (m_isConnected && !m_queueTimer.isActive()) {
         m_queueTimer.start();
     }
+}
+
+//------------------------------------------------------------------------
+void SocketIOClient::enqueueEvent(const QString &eventName, const QString data)
+{
+
 }
 
 //------------------------------------------------------------------------
@@ -610,6 +618,20 @@ void SocketIOClient::emitEvent(const QString &eventName,
 
 
 //------------------------------------------------------------------------
+//void SocketIOClient::emitEventQstringMsg(const QString &eventName, const QString message)
+//{
+//    if (!m_isConnected || !m_webSocket) {
+//        qWarning() << "Not connected, cannot emit:" << eventName;
+//        return;
+//    }
+
+    // Format Socket.IO message: 42["eventName"]
+//    QString data = "42[\"" + message + "\"" + "]";
+
+//    m_webSocket->sendTextMessage(data);
+//    qDebug() << "Emitted event:" << eventName << "message:" << data;
+//}
+
 void SocketIOClient::emitEventQstringMsg(const QString &eventName, const QString message)
 {
     if (!m_isConnected || !m_webSocket) {
@@ -617,8 +639,12 @@ void SocketIOClient::emitEventQstringMsg(const QString &eventName, const QString
         return;
     }
 
-    // Format Socket.IO message: 42["eventName"]
-    QString data = "42[\"" + message + "\"" + "]";
+    // Format Socket.IO message: 42["eventName","message"]
+    QString safeMsg = message;
+    safeMsg.replace(QLatin1Char('\\'), QStringLiteral("\\\\"));
+    safeMsg.replace(QLatin1Char('"'), QStringLiteral("\\\""));
+
+    QString data = QStringLiteral("42[\"%1\",\"%2\"]").arg(eventName, safeMsg);
 
     m_webSocket->sendTextMessage(data);
     qDebug() << "Emitted event:" << eventName << "message:" << data;

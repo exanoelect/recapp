@@ -18,8 +18,9 @@ public:
     void stop();
 
 signals:
-    //Robot mode
+    // Robot mode
     void transcriptionResult(QString status, int percent);
+    void joinReply(QString ret);
 
 public slots:
     void process();
